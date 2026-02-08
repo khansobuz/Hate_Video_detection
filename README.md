@@ -12,23 +12,22 @@ Key innovations include stabilizing multimodal embeddings through frozen adaptiv
 Framwork:
 
 
-
 ## Repository Structure
+
 data/ # Dataset metadata and splits
-├── HateMM
-└── MultiHateClip # MHClip-YouTube and MHClip-Bilibili
-├── en
-└── zh
+├── HateMM # HateMM dataset
+└── MultiHateClip # MultiHateClip datasets (YouTube and Bilibili)
+├── en # English subset
+└── zh # Chinese subset
 
 retrieval/ # Retrieval-related modules
 
 src/ # Core implementation of CL-ReGAF
-├── config # Training and experiment configurations
+├── config # Training and experiment configuration files
 ├── model # Model architectures
-├── utils # Training and evaluation utilities
-├── data # Dataset loaders
-└── CL_EXP/ # Experiments for continual learning
-
+├── utils # Helper functions for training and evaluation
+├── data # Dataset loaders for MoRE
+└── CL_EXP/ # Experiments for continual learning evaluation
 
 ---
 
