@@ -14,20 +14,20 @@ Framwork:
 
 ## Repository Structure
 
-data/ # Dataset metadata and splits
-├── HateMM # HateMM dataset
-└── MultiHateClip # MultiHateClip datasets (YouTube and Bilibili)
-├── en # English subset
-└── zh # Chinese subset
+data/                     # Dataset metadata and splits
+├── HateMM                # HateMM dataset
+└── MultiHateClip         # MultiHateClip datasets (YouTube and Bilibili)
+    ├── en                # English subset
+    └── zh                # Chinese subset
 
-retrieval/ # Retrieval-related modules
+retrieval/                # Retrieval-related modules
 
-src/ # Core implementation of CL-ReGAF
-├── config # Training and experiment configuration files
-├── model # Model architectures
-├── utils # Helper functions for training and evaluation
-├── data # Dataset loaders for MoRE
-└── CL_EXP/ # Experiments for continual learning evaluation
+src/                      # Core implementation of CL-ReGAF
+├── config                # Training and experiment configuration files
+├── model                 # Model architectures
+├── utils                 # Helper functions for training and evaluation
+├── data                  # Dataset loaders for MoRE
+└── CL_EXP/               # Experiments for continual learning evaluation
 
 ---
 
