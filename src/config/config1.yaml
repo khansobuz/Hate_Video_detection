@@ -1,0 +1,44 @@
+# PC-CML Configuration - CODA-Prompt (CVPR 2023)
+# Target: 85%+ accuracy with continual learning
+# Save as: config/config.yaml
+
+task: binary
+
+data:
+  text_encoder: local_models/bert-base-uncased
+  num_pos: 30              # Keep original: proven to work
+  num_neg: 90              # Keep original: proven to work
+
+para:
+  text_encoder: local_models/bert-base-uncased
+  fea_dim: 128             # Keep 128: stable performance
+  num_epoch: 100
+  delta: 0.25
+  alpha: 0.8
+  num_pos: 30
+  num_neg: 90
+  num_head: 4
+  dropout: 0.3             # Standard dropout
+  num_classes: 2
+  label_smoothing: 0.15    # Moderate smoothing
+  use_mixup: true
+  mixup_alpha: 0.3         # Standard mixup
+  
+  # PC-CML / CODA-Prompt specific (optimized for 85%+)
+  prompt_pool_size: 8      # Smaller = less overfitting
+  prompt_length: 4         # Shorter = less memorization
+  prompt_top_k: 3          # Fewer = more focused
+
+opt:
+  name: AdamW
+  lr: 0.0002               # 2e-4: standard for transformer
+  weight_decay: 0.0001     # 1e-4: standard regularization
+
+sche:
+  name: CosineAnnealingLR
+
+num_epoch: 100
+batch_size: 40             # 40 works well for your dataset
+seed: 2024
+type: default
+patience: 15               # Early stopping patience

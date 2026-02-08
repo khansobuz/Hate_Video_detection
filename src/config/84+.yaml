@@ -1,0 +1,35 @@
+task: binary
+
+data:
+  text_encoder: local_models/bert-base-uncased
+  num_pos: 30  # Keep original
+  num_neg: 90  # Keep original
+
+para:
+  text_encoder: local_models/bert-base-uncased
+  fea_dim: 128  # BACK TO ORIGINAL (256 was too big)
+  num_epoch: 50
+  delta: 0.25
+  alpha: 0.8
+  num_pos: 30
+  num_neg: 90
+  num_head: 8  # Keep reasonable
+  dropout: 0.2  # LOWER dropout (0.3 was too high)
+  memory_size: 1500  # Moderate increase
+
+opt:
+  name: AdamW
+  lr: 0.0004  # Slightly lower than before
+  weight_decay: 0.00008  # Moderate
+
+sche:
+  name: DummyLR
+
+num_epoch: 50
+batch_size: 128  # BACK TO ORIGINAL
+seed: 2024
+ 
+type: default
+patience: 70  # More patience
+use_memory: true
+memory_sample_ratio: 0.4  # Moderate

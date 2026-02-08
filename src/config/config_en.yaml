@@ -1,0 +1,39 @@
+ 
+
+task: binary
+
+data:
+  text_encoder: local_models/bert-base-chinese
+  num_pos: 25              # Between 20 and 30
+  num_neg: 75              # Between 60 and 90
+
+para:
+  text_encoder: local_models/bert-base-chinese
+  fea_dim: 112             # Between 96 and 128 (sweet spot)
+  num_epoch: 100
+  delta: 0.25
+  alpha: 0.8
+  num_pos: 25
+  num_neg: 75
+  num_head: 4
+  dropout: 0.35            # Between 0.3 and 0.5 (moderate)
+  memory_size: 1500         # Between 500 and 1000
+  label_smoothing: 0.18    # Between 0.15 and 0.25
+  use_mixup: true
+  mixup_alpha: 0.35        # Between 0.3 and 0.5
+
+opt:
+  name: AdamW
+  lr: 0.00012              # Between 0.0001 and 0.00015
+  weight_decay: 0.00012    # Between 0.0001 and 0.00015
+
+sche:
+  name: CosineAnnealingLR
+
+num_epoch: 100
+batch_size: 40             # Between 32 and 48
+seed: 2024
+type: default
+patience: 72             # Between 8 and 15 (middle ground)
+use_memory: true
+memory_sample_ratio: 0.12  # Between 0.1 and 0.15
