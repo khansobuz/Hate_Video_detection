@@ -10,6 +10,7 @@ Key innovations include stabilizing multimodal embeddings through frozen adaptiv
 
 ---
 Framwork:
+![Uploading main_fig.jpg…]()
 
 
 ## Repository Structure
